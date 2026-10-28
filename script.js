@@ -3,14 +3,15 @@
    ========================================================== */
 
 /* ----------------------------------------------------------
-   PENGATURAN TAUTAN GITHUB
-   Isi tautan repository kamu di sini setelah diunggah ke GitHub.
-   Contoh: "https://github.com/username/website-bakery"
-   Biarkan kosong ("") jika belum ada.
+   PENGATURAN TAUTAN PROJECT
+   Isi tautan kamu di sini.
+   Project 1: tautan GitHub. Project 2: tautan Instagram.
+   Contoh GitHub   : "https://habibahhasna25068-cyber.github.io/UTS-WEB-PRO-A"
+   Contoh Instagram: "https://www.instagram.com/nanaisdonut/"
    ---------------------------------------------------------- */
-const GITHUB_LINKS = {
-  websiteBakery: "",
-  promosiBakery: ""
+const PROJECT_LINKS = {
+  websiteBakery: "https://habibahhasna25068-cyber.github.io/UTS-WEB-PRO-A",
+  promosiBakery: "https://www.instagram.com/nanaisdonut/"
 };
 
 /* ----------------------------------------------------------
@@ -110,19 +111,21 @@ allImages.forEach(function (img) {
 });
 
 /* ----------------------------------------------------------
-   5. TAUTAN GITHUB PROJECT
+   5. TAUTAN PROJECT (GitHub dan Instagram)
    ---------------------------------------------------------- */
-const githubButtons = document.querySelectorAll(".github-link");
+const projectButtons = document.querySelectorAll(".project-link");
 
-githubButtons.forEach(function (button) {
+projectButtons.forEach(function (button) {
   const key = button.getAttribute("data-project");
-  const url = GITHUB_LINKS[key];
+  const type = button.getAttribute("data-type");
+  const url = PROJECT_LINKS[key];
 
   if (url && url.trim() !== "") {
     button.setAttribute("href", url);
   } else {
+    const namaTautan = type === "instagram" ? "Instagram" : "GitHub";
     button.classList.add("btn-disabled");
-    button.textContent = "Tautan GitHub belum tersedia";
+    button.textContent = "Tautan " + namaTautan + " belum tersedia";
     button.removeAttribute("target");
     button.addEventListener("click", function (event) {
       event.preventDefault();

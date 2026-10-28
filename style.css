@@ -318,6 +318,12 @@ a {
   text-align: center;
 }
 
+.edu-table th:last-child,
+.edu-table td:last-child {
+  width: 150px;
+  white-space: nowrap;
+}
+
 /* ===== SKILL ===== */
 .skill-note {
   font-size: 0.85rem;
@@ -376,12 +382,14 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .project-card {
   flex: 1 1 320px;
   max-width: 480px;
+  display: flex;
+  flex-direction: column;
   background-color: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -413,17 +421,14 @@ a {
   object-fit: cover;
 }
 
+/* Semua gambar project memakai ukuran sama: landscape 16:9 */
 .project-img-landscape {
   aspect-ratio: 16 / 9;
 }
 
-/* Rasio portrait A4: lebar 210 mm, tinggi 297 mm */
-.project-img-a4 {
-  aspect-ratio: 210 / 297;
-}
-
 .project-body {
   padding: 22px;
+  flex: 1;
 }
 
 .project-body h3 {
